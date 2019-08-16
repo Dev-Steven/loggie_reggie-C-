@@ -1,0 +1,22 @@
+@model User
+
+<div class="row">
+    <h1>Welcome to the Login Page!</h1>
+    <a class="col-6" href="/">Register</a>
+</div>
+
+<form asp-action="Logging" asp-controller="Home" method="post">
+    <div class="form-group">
+        <span asp-validation-for="Email"></span>
+        <br>
+        <label asp-for="Email"></label>
+        <input class="form-control" asp-for="Email">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Password"></span>
+        <label asp-for="Password"></label>
+        <input class="form-control" asp-for="Password">
+    </div>
+    <br>
+    <button class="btn btn-primary">Login!</button>
+</form>
