@@ -113,8 +113,16 @@ namespace loggie_reggie.Controllers
             if(UserId == null)
             {
                 return View("Login");
+            }else{
+                return View("Success");
             }
-            return View("Success");
+        }
+
+        [HttpGet("logout")]
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login");
         }
     }
 }
