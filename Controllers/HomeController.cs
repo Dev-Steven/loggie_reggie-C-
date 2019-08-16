@@ -51,6 +51,8 @@ namespace loggie_reggie.Controllers
                     NewUser.UpdatedAt = DateTime.Now;
                     dbContext.SaveChanges();
                     
+                    HttpContext.Session.SetInt32("id",dbContext.Users.Last().Id);
+
                     return RedirectToAction("Success");
                 }   
             }
@@ -93,6 +95,9 @@ namespace loggie_reggie.Controllers
                     // handle failure (this should be similar to how "existing email" is handled)
                     return View("Login");
                 }
+
+                HttpContext.Session.SetInt32("id",dbContext.Users.Last().Id);
+
                 return RedirectToAction("Success");
             }
             else
@@ -104,6 +109,11 @@ namespace loggie_reggie.Controllers
         [HttpGet("success")]
         public IActionResult Success()
         {
+            int? UserId = HttpContext.Session.GetInt32("id");
+            if(UserId == null)
+            {
+                return View("Login");
+            }
             return View("Success");
         }
     }
