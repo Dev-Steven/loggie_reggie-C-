@@ -30,3 +30,4 @@
 /Users/stevenchung/Documents/coding_dojo/c#_stack/entity/loggie_reggie/obj/Debug/netcoreapp2.2/loggie_reggie.csproj.CopyComplete
 /Users/stevenchung/Documents/coding_dojo/c#_stack/entity/loggie_reggie/obj/Debug/netcoreapp2.2/Razor/Views/Home/Login.g.cshtml.cs
 /Users/stevenchung/Documents/coding_dojo/c#_stack/entity/loggie_reggie/obj/Debug/netcoreapp2.2/Razor/Views/Home/Success.g.cshtml.cs
+/Users/stevenchung/Documents/coding_dojo/c#_stack/entity/loggie_reggie/obj/Debug/netcoreapp2.2/Razor/Views/Home/Registration.g.cshtml.cs

@@ -1,7 +1,11 @@
-public class LoginUser
+
+namespace loggie_reggie.Models
 {
-    // No other fields!
-    public string Email {get;set;}
-    public string Password {get;set;}
+    public class LoginUser
+    {
+        // No other fields!
+        public string LoginEmail {get;set;}
+        public string LoginPassword {get;set;}
+    }
 }
 

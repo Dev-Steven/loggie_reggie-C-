@@ -62,11 +62,7 @@ namespace loggie_reggie.Controllers
             }
         }
 
-        [HttpGet("login")]
-        public IActionResult Login()
-        {
-            return View("Login");
-        }
+
 
         [HttpPost("logging")]
         public IActionResult Logging(LoginUser userSubmission)
@@ -74,26 +70,26 @@ namespace loggie_reggie.Controllers
             if(ModelState.IsValid)
             {
                 // If inital ModelState is valid, query for a user with provided email
-                var userInDb = dbContext.Users.FirstOrDefault(u => u.Email == userSubmission.Email);
+                var userInDb = dbContext.Users.FirstOrDefault(u => u.Email == userSubmission.LoginEmail);
                 // If no user exists with provided email
                 if(userInDb == null)
                 {
                     // Add an error to ModelState and return to View!
-                    ModelState.AddModelError("Email", "Invalid Email/Password");
-                    return View("Login");
+                    ModelState.AddModelError("LoginEmail", "Invalid Email/Password");
+                    return View("Index");
                 }
                 
                 // Initialize hasher object
                 var hasher = new PasswordHasher<LoginUser>();
                 
                 // verify provided password against hash stored in db
-                var result = hasher.VerifyHashedPassword(userSubmission, userInDb.Password, userSubmission.Password);
+                var result = hasher.VerifyHashedPassword(userSubmission, userInDb.Password, userSubmission.LoginPassword);
                 
                 // result can be compared to 0 for failure
                 if(result == 0)
                 {
                     // handle failure (this should be similar to how "existing email" is handled)
-                    return View("Login");
+                    return View("Index");
                 }
 
                 HttpContext.Session.SetInt32("id",dbContext.Users.Last().Id);
@@ -102,7 +98,7 @@ namespace loggie_reggie.Controllers
             }
             else
             {
-                return View("Login");
+                return View("Index");
             }
         }
 
@@ -112,7 +108,7 @@ namespace loggie_reggie.Controllers
             int? UserId = HttpContext.Session.GetInt32("id");
             if(UserId == null)
             {
-                return View("Login");
+                return View("Index");
             }else{
                 return View("Success");
             }
@@ -122,7 +118,7 @@ namespace loggie_reggie.Controllers
         public IActionResult LogOut()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index");
         }
     }
 }

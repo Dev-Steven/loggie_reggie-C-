@@ -2991,6 +2991,11 @@
       "FilePath": "Views/Shared/_Layout.cshtml",
       "TargetPath": "Views/Shared/_Layout.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Home/Registration.cshtml",
+      "TargetPath": "Views/Home/Registration.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.1"

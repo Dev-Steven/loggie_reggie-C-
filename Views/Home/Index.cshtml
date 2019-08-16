@@ -1,37 +1,17 @@
-﻿@model User
-
+﻿
+<h1 class=" text-center">Register to this Cool Site!</h1> 
 <div class="row">
-    <h1 class="col-6">Register to this Cool Site!</h1> 
-    <a class="col-6" asp-action="Login" asp-controller="Home">Login</a>
-</div>
-
-<form asp-action="Register" asp-controller="Home" method="post">
-    <span asp-validation-for="FirstName"></span>
-    <br>
-    <div class="form-group">
-        <label asp-for="FirstName"></label>
-        <input class="form-control" asp-for="FirstName">
+    <div class="col-6">
+        <h1>Registration</h1>
+        <partial name="Registration"/>
     </div>
 
-    <span asp-validation-for="LastName"></span>
-    <br>
-    <label asp-for="LastName"></label>
-    <input class="form-control" asp-for="LastName">
+    <div class="col-6">
+        <h1>LogIn</h1>
+        <partial name="Login"/>
+    </div>
+</div>
 
-    <span asp-validation-for="Email"></span>
-    <br>
-    <label asp-for="Email"></label>
-    <input class="form-control" asp-for="Email">
 
-    <span asp-validation-for="Password"></span>
-    <br>
-    <label asp-for="Password"></label>
-    <input class="form-control" asp-for="Password">
 
-    <span asp-validation-for="Confirm"></span>
-    <br>
-    <label asp-for="Confirm"></label>
-    <input class="form-control" asp-for="Confirm">
-    <br>
-    <button class="btn btn-primary">Sign Up</button>
-</form>
+
